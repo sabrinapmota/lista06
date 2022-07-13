@@ -7,6 +7,8 @@ public abstract class Funcionario {
     String OrdemLotacao;
     Double salario;
 
+    public Funcionario() {
+    }
 
     public Funcionario(String nome, String cpf, String numeroRegistro, String ordemLotacao, Double salario) {
         this.nome = nome;

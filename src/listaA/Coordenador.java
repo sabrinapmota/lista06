@@ -1,43 +1,35 @@
 package listaA;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Coordenador extends Funcionario {
 
-    Integer quantidadeProfessorSupervisionado;
-    Integer adicionaProfessor;
-    Double salarioCoordenador;
-    Double AumentoSalarioCoordenador = 0.05;
+    private List<Professor> professorSupervisionados = new ArrayList<>();
+    private final Double AUMENTO_SALARIO_COORDENADOR = 0.05;
 
+    public Coordenador() {
+    }
 
-    public Coordenador(String nome, String cpf, String numeroRegistro, String ordemLotacao, Double salario, Integer quantidadeProfessorSupervisionado, Integer adicionaProfessor) {
+    public Coordenador(String nome, String cpf, String numeroRegistro, String ordemLotacao, Double salario) {
         super(nome, cpf, numeroRegistro, ordemLotacao, salario);
-        this.quantidadeProfessorSupervisionado = quantidadeProfessorSupervisionado;
-        this.adicionaProfessor = adicionaProfessor;
     }
 
-    public Integer getQuantidadeProfessorSupervisionado() {
-        return quantidadeProfessorSupervisionado;
+    public void adicionaProfessor(Professor professor) {
+        if (professorSupervisionados.size() <= 5) {
+            professorSupervisionados.add(professor);
+        }
     }
 
-    public void setQuantidadeProfessorSupervisionado(Integer quantidadeProfessorSupervisionado) {
-        this.quantidadeProfessorSupervisionado = quantidadeProfessorSupervisionado;
+    public void aumentoSalario() {
+        salario += salario * AUMENTO_SALARIO_COORDENADOR;
     }
 
-    public Integer getAdicionaProfessor() {
-        return adicionaProfessor;
+    public List<Professor> getProfessorSupervisionados() {
+        return professorSupervisionados;
     }
 
-    public void setAdicionaProfessor(Integer adicionaProfessor) {
-        this.adicionaProfessor = adicionaProfessor;
-    }
-
-    public void adicionarProfessor(Integer adicionaProfessor, Integer quantidadeProfessorSupervisionado, Integer totalProfessores) {
-        totalProfessores = adicionaProfessor + quantidadeProfessorSupervisionado;
-
-        System.out.println("o total de professores supervisionados é: " + quantidadeProfessorSupervisionado);
-
-    }
-
-    public void reajusteSalarioCoordenador(Double salarioCoordenador, Double aumentoSalarioCoordenador, Double totalSalario) {
-        totalSalario = ((salario * aumentoSalarioCoordenador) + salarioCoordenador);
+    public void setProfessorSupervisionados(List<Professor> professorSupervisionados) {
+        this.professorSupervisionados = professorSupervisionados;
     }
 }

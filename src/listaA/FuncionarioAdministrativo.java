@@ -1,16 +1,19 @@
 package listaA;
 
 public class FuncionarioAdministrativo extends Funcionario {
-    String funcaoAdministrativa;
-    String senhoridade;
-    Double salarioFuncionario;
-    Double aumentoSalarioFuncionario = 0.10;
+    private String funcaoAdministrativa;
+    private String senhoridade;
+    private  final  Double AUMENTO_SALARIO = 0.10;
 
 
     public FuncionarioAdministrativo(String nome, String cpf, String numeroRegistro, String ordemLotacao, Double salario, String funcaoAdministrativa, String senhoridade) {
         super(nome, cpf, numeroRegistro, ordemLotacao, salario);
         this.funcaoAdministrativa = funcaoAdministrativa;
         this.senhoridade = senhoridade;
+    }
+    public void aumentoSalario() {
+        Double valorAumento = salario * AUMENTO_SALARIO;
+        salario += valorAumento;
     }
 
     public String getFuncaoAdministrativa() {
@@ -20,8 +23,12 @@ public class FuncionarioAdministrativo extends Funcionario {
     public void setFuncaoAdministrativa(String funcaoAdministrativa) {
         this.funcaoAdministrativa = funcaoAdministrativa;
     }
-    public void aumentoFuncionario(Double salarioFuncionario, Double aumentoSalarioFuncionario, Double totalSalarioFuncionario){
-        totalSalarioFuncionario = ((salarioFuncionario *aumentoSalarioFuncionario ) + salarioFuncionario);
-        System.out.println(" Seu salário é: "  + salarioFuncionario);
+
+    public String getSenhoridade() {
+        return senhoridade;
+    }
+
+    public void setSenhoridade(String senhoridade) {
+        this.senhoridade = senhoridade;
     }
 }

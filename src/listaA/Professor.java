@@ -3,12 +3,11 @@ package listaA;
 public class Professor extends Funcionario {
 
 
-    String nivelGraduacao;
-    String disciplinaMinistrada;
-    Integer quantidadeAlunos;
-    Integer quantigadeTurmas;
-    Double salarioProfessor;
-    Double aumentoSalario = 0.10;
+    private String nivelGraduacao;
+    private String disciplinaMinistrada;
+    private Integer quantidadeAlunos;
+    private Integer quantigadeTurmas21;
+    private final Double AUMENTO_SALARIO = 0.10;
 
 
     public Professor(String nome, String cpf, String numeroRegistro, String ordemLotacao, Double salario, String nivelGraduacao, String disciplinaMinistrada, Integer quantidadeAlunos, Integer quantigadeTurmas) {
@@ -17,9 +16,15 @@ public class Professor extends Funcionario {
         this.disciplinaMinistrada = disciplinaMinistrada;
         this.quantidadeAlunos = quantidadeAlunos;
         this.quantigadeTurmas = quantigadeTurmas;
+
+
     }
 
-
+    public void aumentoSalario(){
+        Double valorAumento = salario * AUMENTO_SALARIO;
+        salario += valorAumento;
+        System.out.println("O salário reajustado é: " + salario);
+    }
     public String getNivelGraduacao() {
         return nivelGraduacao;
     }
@@ -50,15 +55,5 @@ public class Professor extends Funcionario {
 
     public void setQuantigadeTurmas(Integer quantigadeTurmas) {
         this.quantigadeTurmas = quantigadeTurmas;
-    }
-
-    public void adicionarTurma(Integer quantigadeTurmas, Integer addTurma, Integer totalTurmas) {
-        totalTurmas = quantigadeTurmas + addTurma;
-        System.out.println("Seu total de turmas é: " + addTurma);
-    }
-
-    public void reajuste(Double aumentoSalario, Double salarioProfessor, Double aumentoSalarial) {
-        aumentoSalarial = ((salarioProfessor * aumentoSalario) + salarioProfessor);
-        System.out.println("Seu salário é: " + aumentoSalarial);
     }
 }
